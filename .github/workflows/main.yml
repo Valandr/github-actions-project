@@ -103,7 +103,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build
-          pth: ./dist
+          path: ./dist
 
       - name: déployer sur le serveur
         env:
