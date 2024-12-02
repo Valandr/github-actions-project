@@ -28,3 +28,4 @@ coverage
 *.sw?
 .nyc_output
 /coverage
+/server/env/*
