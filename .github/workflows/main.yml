@@ -102,10 +102,9 @@ jobs:
         with:
           name: frontend-dist
           path: client/dist/
-          retention-days: 1
 
   test_e2e_frontend:
-    needs: [build_frontend]
+    needs: build_frontend
     runs-on: ubuntu-latest
     steps:
       - name: checkout le code
@@ -116,15 +115,16 @@ jobs:
         with:
           cache: 'npm'
           cache-dependency-path: ./**/package-lock.json
-      # - name: Installer les dépendances
-      #   run: npm install
+      - name: Installer les dépendances
+        run: |
+          cd ./server
+          npm install
 
       - name: download build artefacts
         uses: actions/download-artifact@v3
         with:
           name: frontend-dist
           path: ./client/dist/
-          retention-days: 1
       - name: start backend
         run: |
           cd ./server
