@@ -66,6 +66,7 @@ jobs:
 
       - name: installer les dépendances
         run: |
+          npm install
           npm ci --prefer-offline
 
       - name: vérifie le code
