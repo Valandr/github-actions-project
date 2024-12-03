@@ -118,6 +118,10 @@ jobs:
         with:
           cache: 'npm'
           cache-dependency-path: ./**/package-lock.json
+      # - name: installer les dépendances
+      #   run: |
+      #     npm install
+      #     npm ci --prefer-offline
 
       - name: download build artefacts
         uses: actions/download-artifact@v3
@@ -129,10 +133,6 @@ jobs:
         run: |
           cd ./server
           npm start &
-      - name: installer les dépendances
-        run: |
-          npm install
-          npm ci --prefer-offline
 
       - name: exec cypress
         uses: cypress-io/github-action@v6
