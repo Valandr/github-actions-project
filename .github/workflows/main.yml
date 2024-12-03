@@ -97,31 +97,16 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
-      - name: installer les dépendances client
-        run: |
-          cd client
-          npm ci --prefer-offline
-
-      - name: build le frontend
-        run: |
-          cd client
-          npm run build:e2e
+      - name: récupérer l'artéfact du frontend pour les tests e2e
+        uses: actions/download-artifact@v3
+        with:
+          name: frontend-dist-e2e
+          path: ./client/dist
 
       - name: installer les dépendances serveur
         run: |
           cd server
           npm ci --prefer-offline
-
-      - name: install client dependencies
-        run: |
-          cd client
-          npm ci --prefer-offline
-
-      - name: build frontend
-        run: |
-          cd client
-          npm ci --prefer-offline
-          npm run build:e2e
 
       - name: lancer le serveur backend
         run: |
