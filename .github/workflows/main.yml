@@ -127,13 +127,17 @@ jobs:
       - name: download build artefacts
         uses: actions/download-artifact@v3
         with:
-          name: frontend-dist
+          name: build
           path: ./client/dist/
           retention-days: 1
       - name: start backend
         run: |
           cd ./server
           npm start &
+      - name: installer les dépendances
+        run: |
+          npm install
+          npm ci --prefer-offline
 
       - name: exec cypress
         uses: cypress-io/github-action@v6
@@ -152,10 +156,6 @@ jobs:
       - name: checkout le code
         uses: actions/checkout@v4
 
-      - name: installer les dépendances
-        run: |
-          npm install
-          npm ci --prefer-offline
       - name: télécharger l'artéfact du frontend
         uses: actions/download-artifact@v3
         with:
