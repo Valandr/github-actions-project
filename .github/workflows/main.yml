@@ -69,13 +69,9 @@ jobs:
           npm ci --prefer-offline
 
       - name: vérifie le code
-        run: |
-          cd ./client
-          npm run lint
+        run: npm run lint
       - name: vérifie les vulnérabilités
-        run: |
-          cd ./client
-          npm audit
+        run: npm audit
 
   build_frontend:
     needs: [checks_frontend]
