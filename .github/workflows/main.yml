@@ -136,6 +136,8 @@ jobs:
           npm start &
 
       - name: exec cypress
+        run: |
+          npm install
         uses: cypress-io/github-action@v6
         with:
           working-directory: ./client
