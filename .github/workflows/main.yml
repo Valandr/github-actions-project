@@ -139,12 +139,13 @@ jobs:
 
       - name: exec cypress
         uses: cypress-io/github-action@v6
-        with: working-directory: ./client
-        browser: chrome
-        start: npm run preview
-        wait-on: http://localhost:4173
-        wait-on-timeout: 60
-        config: baseUrl=http://localhost:4173
+        with:
+          working-directory: ./client
+          browser: chrome
+          start: npm run preview
+          wait-on: http://localhost:4173
+          wait-on-timeout: 60
+          config: baseUrl=http://localhost:4173
   # test_e2e:
   #   runs-on: ubuntu-latest
   #   needs: [build_frontend_e2e]
