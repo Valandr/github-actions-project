@@ -67,7 +67,6 @@ jobs:
       - name: installer les dépendances
         run: |
           npm install
-          npm ci --prefer-offline
 
       - name: vérifie le code
         run: npm run lint
@@ -94,7 +93,6 @@ jobs:
       - name: installer les dépendances
         run: |
           npm install
-          npm ci --prefer-offline
 
       - name: build le frontend
         run: npm run build
@@ -118,10 +116,8 @@ jobs:
         with:
           cache: 'npm'
           cache-dependency-path: ./**/package-lock.json
-      # - name: installer les dépendances
-      #   run: |
-      #     npm install
-      #     npm ci --prefer-offline
+      - name: Installer les dépendances
+        run: npm install
 
       - name: download build artefacts
         uses: actions/download-artifact@v3
