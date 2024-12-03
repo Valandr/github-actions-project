@@ -127,7 +127,7 @@ jobs:
       - name: download build artefacts
         uses: actions/download-artifact@v3
         with:
-          name: build
+          name: frontend-dist
           path: ./client/dist/
           retention-days: 1
       - name: start backend
