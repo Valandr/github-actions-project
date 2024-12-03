@@ -116,8 +116,8 @@ jobs:
         with:
           cache: 'npm'
           cache-dependency-path: ./**/package-lock.json
-      - name: Installer les dépendances
-        run: npm install
+      # - name: Installer les dépendances
+      #   run: npm install
 
       - name: download build artefacts
         uses: actions/download-artifact@v3
