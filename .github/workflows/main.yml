@@ -119,11 +119,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./**/package-lock.json
 
-      - name: installer les dépendances
-        run: |
-          cd ./server
-          npm ci --prefer-offline
-
       - name: download build artefacts
         uses: actions/download-artifact@v3
         with:
