@@ -136,8 +136,6 @@ jobs:
           npm start &
 
       - name: exec cypress
-        run: |
-          npm install
         uses: cypress-io/github-action@v6
         with:
           working-directory: ./client
@@ -154,6 +152,10 @@ jobs:
       - name: checkout le code
         uses: actions/checkout@v4
 
+      - name: installer les dépendances
+        run: |
+          npm install
+          npm ci --prefer-offline
       - name: télécharger l'artéfact du frontend
         uses: actions/download-artifact@v3
         with:
