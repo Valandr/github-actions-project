@@ -1,5 +1,5 @@
 {
-  "name": "dymavue",
+  "name": "valandr",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -46,7 +46,7 @@
     "vite": "^4.4.9",
     "vite-plugin-istanbul": "^5.0.0",
     "vitest": "^0.34.2",
-    "vue-template-compiler": "^2.7.14",
-    "vue-tsc": "^2.1.10"
+    "vue-template-compiler": "^0.1.0",
+    "vue-tsc": "^1.8.8"
   }
 }
