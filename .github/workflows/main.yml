@@ -70,11 +70,11 @@ jobs:
 
       - name: vérifie le code
         run: |
-          cd client
+          cd ./client
           npm run lint
       - name: vérifie les vulnérabilités
         run: |
-          cd client
+          cd ./client
           npm audit
 
   build_frontend:
